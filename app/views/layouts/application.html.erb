@@ -5,10 +5,23 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("books", "0");
+
+      function initialize() {
+        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+        viewer.load('ISBN:0738531367');
+      }
+
+      google.setOnLoadCallback(initialize);
+    </script>
 </head>
 <body>
 
 <%= yield %>
 
+<!-- https://www.googleapis.com/books/v1/volumes?filter=partial&langRestrict=en&printType=books&projection=lite&q=cats+subject%20:nonfiction+subject%20:science&startIndex=5
+ -->
 </body>
 </html>

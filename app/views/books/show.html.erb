@@ -1,0 +1,11 @@
+  <h1 class="question">
+    <%= @book.question %>
+  </h1>
+
+  <%= form_tag( { :controller => :books, :action => :update, :id => @book.id }, { :method => :put } ) %>
+    <% @options.each do |option| %>
+      <%= radio_button_tag(:option, option) %>
+      <%= label_tag(:option, option) %><br>
+    <% end %>
+    <%= hidden_field_tag 'selected', params[:option] %>
+    <%= submit_tag "Next" %><br>

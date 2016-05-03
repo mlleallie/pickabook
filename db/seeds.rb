@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+books = Book.create([{question: 'Do you want to read fiction, non-fiction, or a biography?'}, {question: "What kind of genre are you interested in?"}, {question: "What topic are you wanting to read about?"}])
