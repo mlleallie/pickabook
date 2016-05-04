@@ -3,8 +3,28 @@ class BooksController < ApplicationController
   end
 
   def selected
+    #variables to be used in api request if nil:
+
+    begin
+      @type = session[:type].to_s
+    rescue
+      @type = "fiction"
+    end
+
+    begin
+      @genre = session[:genre].to_s
+    rescue
+      @genre = "romance"
+    end
+
+    begin
+      @topic = session[:topic].to_s
+    rescue
+      @topic = "cats"
+    end
+
     #google books JSON api request
-      url = 'https://www.googleapis.com/books/v1/volumes?filter=partial&maxResults=1&langRestrict=en&printType=books&q=' + session[:type].to_s + '+subject%20:' + session[:genre].to_s + '+subject%20:' + session[:topic] + '&startIndex=' + rand(20).to_s
+      url = 'https://www.googleapis.com/books/v1/volumes?filter=partial&maxResults=1&langRestrict=en&printType=books&q=' + @type + '+subject%20:' + @genre + '+subject%20:' + @topic + '&startIndex=' + rand(20).to_s
       response = HTTParty.get(url)
 
       #variables to be used from google books api
@@ -44,7 +64,11 @@ class BooksController < ApplicationController
         response1 = HTTParty.get('https://www.goodreads.com/book/title.xml?author=' + @author + '&key=' + DB_CONN_GOODREADS_KEY + '&title=' + @title)
         data = response1.parsed_response
         # @data = data
-        @averageRating = data['GoodreadsResponse']['book']['average_rating']
+        begin
+          @averageRating = data['GoodreadsResponse']['book']['average_rating']
+        rescue
+          @averageRating = nil
+        end
         @url = data['GoodreadsResponse']['book']['url']
         @isbn = data['GoodreadsResponse']['book']['isbn']
   end
@@ -84,14 +108,6 @@ class BooksController < ApplicationController
 
     redirect_to controller: 'books', action: 'show',  id: @next_id
 
-    # if params[:id] == "2"
-    #   @option1 = params[:option]
-    # elsif params[:id] == "3"
-    #   @option2 = params[:option]
-    # end
-
-      # redirect_to controller: 'books', action: 'show',  id: @next_id, option: params[:option], selected1: @option1, selected2: @option2
-      # book_path(params.merge(option: @selected_option))
   end
 
 end
