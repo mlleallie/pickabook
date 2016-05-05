@@ -27,6 +27,10 @@ gem 'pry'
 
 gem 'httparty'
 
+gem 'bundler'
+
+gem 'bootstrap_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
