@@ -64,13 +64,20 @@ h3.author {
 
 .redirect {
   @include textstyles;
+  font-weight: 700;
 }
 
 .bookPreview {
-  width: 600px;
+  width: 80%;
   height: 600px;
+  margin: 0 auto;
 }
 
-.reviews {
-  text-align: center;
+#goodreads-widget {
+  margin: 0 auto;
+}
+
+#the_iframe {
+    width: 100%;
+    height: 300px;
 }

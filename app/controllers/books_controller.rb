@@ -60,7 +60,8 @@ class BooksController < ApplicationController
         @recommendation = response.parsed_response
 
       #goodreads API request
-        response1 = HTTParty.get('https://www.goodreads.com/book/title.xml?author=' + @author + '&key=' + DB_CONN_GOODREADS_KEY + '&title=' + @title)
+        uri = URI.encode('https://www.goodreads.com/book/title.xml?author=' + @author + '&key=' + DB_CONN_GOODREADS_KEY + '&title=' + @title)
+        response1 = HTTParty.get(uri)
         data = response1.parsed_response
         # @data = data
         begin
