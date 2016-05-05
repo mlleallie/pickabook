@@ -83,7 +83,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
 
-    options_hash = {1 =>["fiction", "non-fiction", "biography"], 2 => ["humor", "drama", "satire", "crime", "tragedy", "horror", "mystery", "romance"], 3 => ["history", "math", "science", "philosophy", "linguistics", "web development", "graphic design", "algorithms" "feminism", "cats", "outerspace", "time travel", "simplicity", "faith", "coming of age", "travel", "exercise", "love", "serial killer", "war", "adventure", "pirates"]}
+    options_hash = {1 =>["fiction", "non-fiction", "biography"], 2 => ["humor", "drama", "satire", "crime", "tragedy", "horror", "mystery", "romance"], 3 => ["history", "math", "science", "philosophy", "linguistics", "web development", "graphic design", "algorithms", "feminism", "cats", "outerspace", "time travel", "simplicity", "faith", "coming of age", "travel", "exercise", "love", "serial killer", "war", "adventure", "pirates"]}
 
     @options = options_hash[params[:id].to_i]
 

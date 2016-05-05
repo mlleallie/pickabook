@@ -1,6 +1,6 @@
 .title {
   font-family: 'IM Fell English SC', serif;
-  font-size: 40px;
+  font-size: 50px;
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -9,47 +9,61 @@
 .button {
   text-align: center;
   font-family: 'Libre Baskerville', serif;
-  margin-right: 3px;
-  margin-left: 3px;
+  margin-right: 5px;
+  margin-left: 5px;
   margin-bottom: 3%; }
 
+.buttonContainer {
+  text-align: center; }
+
+.naviButtons {
+  display: inline-flex; }
+
 h2.bookTitle {
-  font-weight: 400;
+  font-weight: 700;
   text-align: center;
   font-family: 'Libre Baskerville', serif;
-  margin-right: 3px;
-  margin-left: 3px; }
+  margin-right: 5px;
+  margin-left: 5px; }
 
 h3.author {
   text-align: center;
   font-family: 'Libre Baskerville', serif;
-  margin-right: 3px;
-  margin-left: 3px; }
+  margin-right: 5px;
+  margin-left: 5px; }
 
 .rating {
   text-align: center;
   font-family: 'Libre Baskerville', serif;
-  margin-right: 3px;
-  margin-left: 3px; }
+  margin-right: 5px;
+  margin-left: 5px;
+  font-style: italic; }
 
 .bodyText {
   text-align: center;
   font-family: 'Libre Baskerville', serif;
-  margin-right: 3px;
-  margin-left: 3px; }
+  margin-right: 5px;
+  margin-left: 5px; }
 
 .giphy {
   text-align: center; }
 
+.radio {
+  font-family: 'Libre Baskerville', serif;
+  margin-left: 45%; }
+
+.radioLabel {
+  cursor: default; }
+
 .redirect {
   text-align: center;
   font-family: 'Libre Baskerville', serif;
-  margin-right: 3px;
-  margin-left: 3px; }
+  margin-right: 5px;
+  margin-left: 5px; }
 
 .bookPreview {
   width: 600px;
-  height: 500px; }
+  height: 600px; }
 
 .reviews {
   text-align: center; }
