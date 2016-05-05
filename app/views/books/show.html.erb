@@ -1,11 +1,25 @@
-  <h1 class="question">
-    <%= @book.question %>
-  </h1>
+ <div class="row">
+  <div class="col-12-md">
+    <header class="title">
+      <%= @book.question %>
+    </header>
+  </div>
+</div>
 
   <%= form_tag( { :controller => :books, :action => :update, :id => @book.id }, { :method => :put } ) %>
-    <% @options.each do |option| %>
-      <%= radio_button_tag(:option, option) %>
-      <%= label_tag(:option, option) %><br>
-    <% end %>
-    <%= submit_tag "Next" %><br>
+    <div class="form-group radio">
+      <% @options.each do |option| %>
+        <div class="col-md-12">
+          <%= radio_button_tag(:option, option) %>
+          <%= label_tag(:option, option, class: "radioLabel") %><br>
+        </div>
+      <% end %>
+    </div>
+
+<div class="row">
+  <div class="col-md-12 button">
+    <%= submit_tag "Next", class: "btn btn-info", role: "button" %><br>
+  </div>
+</div>
+
 

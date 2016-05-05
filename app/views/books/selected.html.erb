@@ -1,35 +1,72 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
-      google.load("books", "0");
+  google.load("books", "0");
 
-      function initialize() {
-        var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
-        viewer.load('<%= @id %>');
-      }
-      google.setOnLoadCallback(initialize);
-    </script>
+  function initialize() {
+    var viewer = new google.books.DefaultViewer(document.getElementById('viewerCanvas'));
+    viewer.load('<%= @id %>');
+  }
+  google.setOnLoadCallback(initialize);
+</script>
 
-<h1>selected book for you</h1>
+<header class="title">Here's what we've got for you:</header>
 
-  <h2><%= @title %></h2>
-  <h3>Written by: <%= @author %></h3>
-  <p><%= @description %></p>
-  <p>Average Rating: <%= @averageRating %></p>
+<div class="row">
+  <h2 class="col-md-12 bookTitle"><%= @title %></h2>
+</div>
+<div class="row">
+  <h3 class="col-md-12 author">Written by: <%= @author %></h3>
+</div>
+<div class="row rating">
+  <p class="bodyText col-md-12">Average Rating: <%= @averageRating %></p>
+</div>
+<div class="row bookInfo">
+  <p class="bodyText col-md-12"><%= @description %></p>
+</div>
+<div class="redirect">
+  <div class="row">
+    <p class="col-md-12">Hate what you see?</p>
+  </div>
+  <div class="row">
+    <div class="col-md-12 button"><%= button_to "Try again!", books_selected_path, :method => :get, class: "btn btn-info", role: "button"  %></div>
+  </div>
+</div>
 
-  <div id="viewerCanvas" style="width: 700px; height: 600px"></div>
+<div class="row">
+  <div class="col-md-1"></div>
+  <div id="viewerCanvas" class="bookPreview col-md-10"></div>
+  <div class="col-md-1"></div>
+</div>
 
-  <h2>Reviews!</h2>
+<div class="row">
+  <h2 class="col-md-12 bookTitle">Reviews!</h2>
+</div>
 
-  <div id="goodreads-widget">
-    <div id="gr_header">
-      <h1><a href="<%= @url %>"><%= @title %> Reviews!</a></h1>
-    </div>
-    <iframe id="the_iframe" src="https://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&amp;format=html&amp;isbn=<%= @isbn %>&amp;links=660&amp;min_rating=&amp;review_back=fff&amp;stars=000&amp;text=000" width="565" height="400" frameborder="0"></iframe>
-    <div id="gr_footer"> <a class="gr_branding" target="_blank" href="<%= @url %>?utm_medium=api&amp;utm_source=reviews_widget">Reviews from Goodreads.com</a>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 reviews">
+    <div id="goodreads-widget">
+      <div id="gr_header">
+        <h1><a href="<%= @url %>"><%= @title %> Reviews!</a></h1>
+      </div>
+      <iframe id="the_iframe" src="https://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&amp;format=html&amp;isbn=<%= @isbn %>&amp;links=660&amp;min_rating=&amp;review_back=fff&amp;stars=000&amp;text=000" width="565" height="400" frameborder="0"></iframe>
+      <div id="gr_footer"> <a class="gr_branding" target="_blank" href="<%= @url %>?utm_medium=api&amp;utm_source=reviews_widget">Reviews from Goodreads.com</a>
+      </div>
     </div>
   </div>
+  <div class="col-md-3"></div>
+</div>
 
-<a href='/books/1'>Start over</a>
+<div class="buttonContainer">
+  <div class="row naviButtons">
+    <div class="col-md-6 button selected">
+      <a href='/books/1' class="btn btn-info" role="button">Start over</a>
+    </div>
+    <div class="col-md-6 button selected">
+      <a href='/books' class="btn btn-info" role="button">Go home</a>
+    </div>
+  </div>
+</div>
 
 
 

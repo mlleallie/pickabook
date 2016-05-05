@@ -14,6 +14,18 @@
  *= require_self
  */
 
+ /*
+ *= require rails_bootstrap_forms
+ */
+
+ body {
+  background-color: #F8ECC2;
+}
+
+.container-fluid {
+  padding: 0px;
+}
+
 #goodreads-widget {
   font-family: georgia, serif;
   padding: 18px 0;

@@ -1,3 +1,76 @@
 // Place all the styles related to the Books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ @mixin textstyles {
+    text-align: center;
+    font-family: 'Libre Baskerville', serif;
+    margin-right: 5px;
+    margin-left: 5px;
+ }
+
+ .title {
+  font-family: 'IM Fell English SC', serif;
+  font-size: 50px;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #666633;
+ }
+
+.button {
+  @include textstyles;
+  margin-bottom: 3%;
+}
+
+.buttonContainer {
+  text-align: center;
+}
+
+.naviButtons {
+  display: inline-flex;
+}
+
+h2.bookTitle {
+  font-weight: 700;
+  @include textstyles;
+}
+
+h3.author {
+  @include textstyles;
+}
+
+.rating {
+  @include textstyles;
+  font-style: italic;
+}
+
+.bodyText {
+  @include textstyles;
+}
+
+.giphy {
+  text-align: center;
+}
+
+.radio {
+  font-family: 'Libre Baskerville', serif;
+  margin-left: 45%;
+}
+
+.radioLabel {
+  cursor: default;
+}
+
+.redirect {
+  @include textstyles;
+}
+
+.bookPreview {
+  width: 600px;
+  height: 600px;
+}
+
+.reviews {
+  text-align: center;
+}
