@@ -14,6 +14,14 @@
  *= require_self
  */
 
+ body {
+  background-color: #F8ECC2;
+}
+
+.container-fluid {
+  padding: 0px;
+}
+
 #goodreads-widget {
   font-family: georgia, serif;
   padding: 18px 0;

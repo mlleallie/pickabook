@@ -3,28 +3,27 @@ class BooksController < ApplicationController
   end
 
   def selected
-    #variables to be used in api request if nil:
+    #variables to be used in api request if no user response:
+      begin
+        @type = session[:type].to_s
+      rescue
+        @type = "fiction"
+      end
 
-    begin
-      @type = session[:type].to_s
-    rescue
-      @type = "fiction"
-    end
+      begin
+        @genre = session[:genre].to_s
+      rescue
+        @genre = "romance"
+      end
 
-    begin
-      @genre = session[:genre].to_s
-    rescue
-      @genre = "romance"
-    end
-
-    begin
-      @topic = session[:topic].to_s
-    rescue
-      @topic = "cats"
-    end
+      begin
+        @topic = session[:topic].to_s
+      rescue
+        @topic = "cats"
+      end
 
     #google books JSON api request
-      url = 'https://www.googleapis.com/books/v1/volumes?filter=partial&maxResults=1&langRestrict=en&printType=books&q=' + @type + '+subject%20:' + @genre + '+subject%20:' + @topic + '&startIndex=' + rand(20).to_s
+      url = 'https://www.googleapis.com/books/v1/volumes?filter=partial&maxResults=1&langRestrict=en&printType=books&q=' + @topic + '+' + @type + '+subject%20:' + @genre + '&startIndex=' + rand(20).to_s
       response = HTTParty.get(url)
 
       #variables to be used from google books api
@@ -69,14 +68,22 @@ class BooksController < ApplicationController
         rescue
           @averageRating = nil
         end
-        @url = data['GoodreadsResponse']['book']['url']
-        @isbn = data['GoodreadsResponse']['book']['isbn']
+        begin
+          @url = data['GoodreadsResponse']['book']['url']
+        rescue
+          @url = ''
+        end
+        begin
+          @isbn = data['GoodreadsResponse']['book']['isbn']
+        rescue
+          @isbn = ''
+        end
   end
 
   def show
     @book = Book.find(params[:id])
 
-    options_hash = {1 =>["fiction", "non-fiction", "biography"], 2 => ["humor", "drama", "satire", "crime", "tragedy", "horror", "mystery", "romance"], 3 => ["history", "feminism", "cats", "outerspace", "time travel", "simplicity", "faith", "coming of age", "travel", "exercise", "love", "serial killer", "war", "adventure", "pirates"]}
+    options_hash = {1 =>["fiction", "non-fiction", "biography"], 2 => ["humor", "drama", "satire", "crime", "tragedy", "horror", "mystery", "romance"], 3 => ["history", "math", "science", "philosophy", "linguistics", "web development", "graphic design", "algorithms" "feminism", "cats", "outerspace", "time travel", "simplicity", "faith", "coming of age", "travel", "exercise", "love", "serial killer", "war", "adventure", "pirates"]}
 
     @options = options_hash[params[:id].to_i]
 
