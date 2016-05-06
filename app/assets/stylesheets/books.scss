@@ -35,6 +35,10 @@
   background-color: #666633;
 }
 
+.custombtn:hover {
+  background-color: #3b444c;
+}
+
 h2.bookTitle {
   font-weight: 700;
   @include textstyles;
