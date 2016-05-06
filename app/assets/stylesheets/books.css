@@ -53,7 +53,9 @@ h3.author {
   margin-left: 45%; }
 
 .radioLabel {
-  cursor: default; }
+  cursor: default;
+  font-size: 20px;
+  display: inherit; }
 
 .redirect {
   text-align: center;
