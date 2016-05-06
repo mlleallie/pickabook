@@ -46,8 +46,10 @@
     <div id="gr_header">
       <h1><a href="<%= @url %>"><%= @title %> Reviews!</a></h1>
     </div>
-    <iframe id="the_iframe" src="https://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&amp;format=html&amp;isbn=<%= @isbn %>&amp;links=660&amp;min_rating=&amp;review_back=fff&amp;stars=000&amp;text=000" frameborder="2"></iframe>
-    <div id="gr_footer"> <a class="gr_branding" target="_blank" href="<%= @url %>?utm_medium=api&amp;utm_source=reviews_widget">Reviews from Goodreads.com</a>
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe id="the_iframe" class="embed-responsive-item" src="https://www.goodreads.com/api/reviews_widget_iframe?did=DEVELOPER_ID&amp;format=html&amp;isbn=<%= @isbn %>&amp;links=660&amp;min_rating=&amp;review_back=fff&amp;stars=000&amp;text=000" frameborder="2"></iframe>
+      <div id="gr_footer"> <a class="gr_branding" target="_blank" href="<%= @url %>?utm_medium=api&amp;utm_source=reviews_widget">Reviews from Goodreads.com</a>
+      </div>
     </div>
   </div>
 </container>
