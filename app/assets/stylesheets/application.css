@@ -20,6 +20,7 @@
 
  body {
   background-color: #F8ECC2;
+  overflow-x: hidden;
 }
 
 .container-fluid {
