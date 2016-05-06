@@ -31,6 +31,10 @@
   display: inline-flex;
 }
 
+.custombtn {
+  background-color: #666633;
+}
+
 h2.bookTitle {
   font-weight: 700;
   @include textstyles;
